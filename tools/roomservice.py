@@ -34,13 +34,13 @@ except:
     device = product
 
 if not depsonly:
-    print "Device %s not found. Attempting to retrieve device repository from SlimRoms Github (http://github.com/SlimRoms)." % device
+    print "Device %s not found. Attempting to retrieve device repository from codlab mod for SlimRoms Github (http://github.com/codlab)." % device
 
 repositories = []
 
 page = 1
 while not depsonly:
-    result = json.loads(urllib2.urlopen("https://api.github.com/users/SlimRoms/repos?page=%d" % page).read())
+    result = json.loads(urllib2.urlopen("https://api.github.com/users/codlab/repos?page=%d" % page).read())
     if len(result) == 0:
         break
     for res in result:
@@ -245,4 +245,4 @@ else:
             print "Done"
             sys.exit()
 
-print "Repository for %s not found in the SlimRoms Github repository list. If this is in error, you may need to manually add it to .repo/local_manifests/slim_manifest.xml" % device
+print "Repository for %s not found in the codlab SlimRoms Github repository list. If this is in error, you may need to manually add it to .repo/local_manifests/slim_manifest.xml" % device
